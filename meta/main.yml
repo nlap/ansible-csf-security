@@ -9,5 +9,17 @@ galaxy_info:
     - server
     - csf
     - security
+  platforms:
+   - name: EL
+     versions:
+      - 5
+      - 6
+      - 7
+   - name: Fedora
+     versions:
+      - all
+   - name: Ubuntu
+     versions:
+      - all
 
 dependencies: []
