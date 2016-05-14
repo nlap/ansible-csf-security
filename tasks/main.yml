@@ -21,7 +21,7 @@
     - HTML::Strip
 
 - name: install csf
-  shell: /root/csf/install.sh
+  shell: /root/csf/install.sh chdir=/root/csf/
 
 - name: remove archive
   file: path=/root/csf.tgz state=absent
