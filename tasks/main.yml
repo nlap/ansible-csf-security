@@ -6,7 +6,7 @@
   file: path=/root/csf state=directory
 
 - name: extract csf
-  unarchive: src=/root/csf.tgz dest=/root/csf
+  unarchive: src=/root/csf.tgz dest=/root/csf copy=no
 
 - name: install csf prerequisites
   cpanm: name={{item}}
