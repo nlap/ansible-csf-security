@@ -8,6 +8,9 @@
 - name: extract csf
   unarchive: src=/root/csf.tgz dest=/root/csf copy=no
 
+- name: install make
+  package: name=make state=latest
+
 - name: prepare perl
   shell: curl -L https://cpanmin.us | perl - --sudo App::cpanminus
 
