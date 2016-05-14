@@ -1,0 +1,36 @@
+---
+- name: download csf
+  get_url: url=https://download.configserver.com/csf.tgz dest=/root/csf.tgz
+
+- name: extract csf
+  unarchive: src=/root/csf.tgz dest=/root/csf
+
+- name: install csf prerequisites
+  cpanm: name={{item}}
+  with_items:
+    - Bundle::LWP
+    - HTML::Strip
+
+- name: install csf
+  shell: /root/csf/install.sh
+
+- name: remove archive
+  file: path=/root/csf.tgz state=absent
+
+- name: remove folder
+  file: path=/root/csf/ state=absent
+
+- name: update ssh config
+  template: src=sshd_config dest=/etc/ssh/sshd_config owner=root group=root mode=0644
+
+- name: restart ssh
+  service: name=sshd state=restarted
+
+- name: update csf config
+  template: src=csf.conf dest=/etc/csf/csf.conf
+
+- name: add servercheck script
+  template: src=servercheck.pl dest=/etc/csf/servercheck.pl
+
+- name: finished
+  debug: msg="Test the firewall, then take CSF out of testing mode (from csf.conf). Run servercheck.pl to check remaining hardening tasks."

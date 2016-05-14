@@ -1,0 +1,13 @@
+---
+galaxy_info:
+  author: Nathan Lapierre
+  description: Installs ConfigServer Firewall (CSF) and configures basic security
+  license: MIT
+  min_ansible_version: 1.6
+  galaxy_tags:
+    - development
+    - server
+    - csf
+    - security
+
+dependencies: []
