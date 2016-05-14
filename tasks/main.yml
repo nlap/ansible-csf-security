@@ -2,11 +2,8 @@
 - name: download csf
   get_url: url=https://download.configserver.com/csf.tgz dest=/root/csf.tgz
 
-- name: prepare folder
-  file: path=/root/csf state=directory
-
 - name: extract csf
-  unarchive: src=/root/csf.tgz dest=/root/csf copy=no
+  unarchive: src=/root/csf.tgz dest=/root copy=no
 
 - name: install build env
   package: name={{item}} state=latest
