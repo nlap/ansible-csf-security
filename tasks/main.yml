@@ -10,6 +10,7 @@
   with_items:
     - make
     - gcc
+    - unzip
 
 - name: prepare perl
   shell: curl -L https://cpanmin.us | perl - --sudo App::cpanminus
